@@ -1,12 +1,12 @@
 //Write a function named transform that accepts an array of integers, and returns an array in which all the elements are squared and sorted in ascending order. Name this file transform.js.
 
 function transform(nums) {
-    const test = []
+    const container = []
     for(let i = 0; i < nums.length; i++) { //#1
-        test.push(Math.pow(nums[i],2)) //#2
+        container.push(Math.pow(nums[i],2)) //#2
     }
-    test.sort((a,b) => a-b) //#3
-    return test // #4, #5
+    container.sort((a,b) => a-b) //#3
+    return container // #4, #5
 }
 
 const nums = [4,9,5,3,8]
@@ -23,7 +23,7 @@ Notes to self
     -> increment expression (i++)
         -> para tumigil yung for loop
 #2 Even if I was doing Math.pow, the value of nums didn't change
-    -> Reason: it's just doing the math, pero it's not updating the value, which is why pinush siya sa test
+    -> Reason: it's just doing the math, pero it's not updating the value, which is why pinush siya sa container
     -> Math.pow(number, power to be raised to)
         -> Math.pow(2,3) is 2^3
 #3 nums is getting sorted using the compare function
