@@ -1,0 +1,129 @@
+:root {
+    --background-image: url(/Users/loreine-a.bernal/Desktop/apper-frontend-course/session-3/tamockgotchi/src/images/room5.jpg); 
+}
+
+[data-theme='dark']{
+    --background-image: url(/Users/loreine-a.bernal/Desktop/apper-frontend-course/session-3/tamockgotchi/src/images/darkBG3.GIF); 
+    background-size: 60%;
+}
+
+.app {
+    background-color: gray;
+    transition: all .5s;
+    display: flex;
+    flex-direction: column; /* Add this to stack children vertically */
+    align-items: center; /* Add this to center children vertically */
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 15px;
+    border: 3px black solid;
+    border-radius: 10px;
+}
+
+.app .screen {
+    background-image: var(--background-image);
+    background-size:cover; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position:top;
+    border: 3px black solid;
+    border-radius: 10px;
+    height: 80%;
+    width: 90%;
+    margin-top: 57px;
+}
+
+.app .screen .dog {
+    margin-top: 255px;
+    margin-left: 450px;
+    width: 180px;
+    height: 180px;
+}
+
+.app .screen .dog:hover {
+    cursor: grab;
+}
+
+.app .buttons {
+    position: absolute;
+    bottom: 0px;
+}
+
+.app .buttons .feed {
+    margin-right: 100px;
+    width: 100px;
+    height: 60px;
+}
+
+.app .buttons .potty {
+    margin-right: 100px;
+    width: 100px;
+    height: 55px;
+}
+  
+.app .buttons .sleep {
+    width: 100px;
+    height: 48px;
+    margin-bottom: 3px;
+}
+
+
+.app .screen .bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 5px;
+    background-color:lightblue;
+
+}
+
+.app .screen .bars .happiness {
+    display: flex;
+    margin-left: 10px;
+    
+}
+
+.app .screen .bars .happiness .smiley {
+    width: 35px;
+    height: 30px;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.app .screen .bars .energy {
+    display: flex;
+    margin-left: -5px;
+}
+
+.app .screen .bars .energy .sleep {
+    width: 60px;
+    height: 60px;
+    margin-right: -3px;
+    margin-top: -3px;
+}
+
+.app .screen .bars .hunger {
+    display: flex;
+}
+
+.app .screen .bars .hunger .food {
+    width: 50px;
+    height: 50px;
+    margin-top: 6px;
+}
+
+.app .screen .bars .bladder {
+    display: flex;
+}
+
+.app .screen .bars .bladder .poo {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-right: 7px;
+}
+
+
+
