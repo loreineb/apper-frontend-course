@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import ProgressBar from './ProgressBar';
+import Tooltip from './Tooltip';
 import './App.css';
 import sleep from './images/sleep.png';
 import smiley from './images/smiley.png';
@@ -112,6 +113,11 @@ function App() {
   return (
     <div className="app">
       <div className="screen" data-theme={theme}>
+      {!isDarkTheme && (
+      <Tooltip text={"This is my dog Popeye"}>
+        <span class="material-symbols-outlined">info</span>
+      </Tooltip>
+      )} 
       <div className="bars">
         <div className="happiness">
           <img className="smiley" src={smiley} alt="Happiness" />

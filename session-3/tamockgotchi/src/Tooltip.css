@@ -1,0 +1,17 @@
+.tooltip-container{
+    position: relative;
+    top: 73px;
+    margin-left: 370px;
+}
+
+.tooltip{
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1; /* so it's always on top */
+}

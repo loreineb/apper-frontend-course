@@ -1,107 +1,110 @@
+/* rems or percentages are adaptable to changes rather than pixels */
+
 :root {
-    --background-image: url(/Users/loreine-a.bernal/Desktop/apper-frontend-course/session-3/tamockgotchi/src/images/room5.jpg); 
+    --background-image: url(src/images/room5.jpg);
 }
 
-[data-theme='dark']{
-    --background-image: url(/Users/loreine-a.bernal/Desktop/apper-frontend-course/session-3/tamockgotchi/src/images/darkBG3.GIF); 
-    background-size: 60%;
+[data-theme='dark'] {
+    --background-image: url(src/images/darkBG3.GIF);
 }
 
 .app {
     background-color: gray;
-    transition: all .5s;
+    transition: all 0.5s;
     display: flex;
-    flex-direction: column; /* Add this to stack children vertically */
-    align-items: center; /* Add this to center children vertically */
+    flex-direction: column;
+    align-items: center;
     height: 90vh;
     width: 100%;
     position: relative;
-    margin-top: 20px;
-    padding-left: 30px;
-    padding-right: 15px;
-    border: 3px black solid;
-    border-radius: 10px;
+    margin-top: 1.25rem; /* Converted from 20px */
+    padding-left: 1.875rem; /* Converted from 30px */
+    padding-right: 0.9375rem; /* Converted from 15px */
+    border: 0.1875rem black solid; /* Converted from 3px */
+    border-radius: 0.625rem; /* Converted from 10px */
 }
 
 .app .screen {
     background-image: var(--background-image);
-    background-size:cover; /* Resize the background image to cover the entire container */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    background-position:top;
-    border: 3px black solid;
-    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    border: 0.1875rem black solid; /* Converted from 3px */
+    border-radius: 0.625rem; /* Converted from 10px */
     height: 80%;
     width: 90%;
-    margin-top: 57px;
+    margin-top: 3.5625rem; /* Converted from 57px */
 }
 
 .app .screen .dog {
-    margin-top: 255px;
-    margin-left: 450px;
-    width: 180px;
-    height: 180px;
+    margin-top: 15.9375rem; /* Converted from 255px */
+    margin-left: 28.125rem; /* Converted from 450px */
+    width: 11.25rem; /* Converted from 180px */
+    height: 11.25rem; /* Converted from 180px */
 }
 
 .app .screen .dog:hover {
     cursor: grab;
 }
 
+.app .screen .dog:active {
+    cursor: grabbing;
+}
+
 .app .buttons {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
 }
 
 .app .buttons .feed {
-    margin-right: 100px;
-    width: 100px;
-    height: 60px;
+    margin-right: 6.25rem; /* Converted from 100px */
+    width: 6.25rem; /* Converted from 100px */
+    height: 3.75rem; /* Converted from 60px */
 }
 
 .app .buttons .potty {
-    margin-right: 100px;
-    width: 100px;
-    height: 55px;
-}
-  
-.app .buttons .sleep {
-    width: 100px;
-    height: 48px;
-    margin-bottom: 3px;
+    margin-right: 6.25rem; /* Converted from 100px */
+    width: 6.25rem; /* Converted from 100px */
+    height: 3.4375rem; /* Converted from 55px */
 }
 
+.app .buttons .sleep {
+    width: 6.25rem; /* Converted from 100px */
+    height: 3rem; /* Converted from 48px */
+    margin-bottom: 0.1875rem; /* Converted from 3px */
+}
 
 .app .screen .bars {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-radius: 5px;
-    background-color:lightblue;
-
+    border-radius: 0.3125rem; /* Converted from 5px */
+    background-color: lightblue;
+    margin-top: -1.75rem; /* Converted from -28px */
 }
 
 .app .screen .bars .happiness {
     display: flex;
-    margin-left: 10px;
-    
+    margin-left: 0.625rem; /* Converted from 10px */
 }
 
 .app .screen .bars .happiness .smiley {
-    width: 35px;
-    height: 30px;
-    margin-top: 15px;
-    margin-right: 5px;
+    width: 2.1875rem; /* Converted from 35px */
+    height: 1.875rem; /* Converted from 30px */
+    margin-top: 0.9375rem; /* Converted from 15px */
+    margin-right: 0.3125rem; /* Converted from 5px */
 }
 
 .app .screen .bars .energy {
     display: flex;
-    margin-left: -5px;
+    margin-left: -0.3125rem; /* Converted from -5px */
 }
 
 .app .screen .bars .energy .sleep {
-    width: 60px;
-    height: 60px;
-    margin-right: -3px;
-    margin-top: -3px;
+    width: 3.75rem; /* Converted from 60px */
+    height: 3.75rem; /* Converted from 60px */
+    margin-right: -0.1875rem; /* Converted from -3px */
+    margin-top: -0.1875rem; /* Converted from -3px */
 }
 
 .app .screen .bars .hunger {
@@ -109,9 +112,9 @@
 }
 
 .app .screen .bars .hunger .food {
-    width: 50px;
-    height: 50px;
-    margin-top: 6px;
+    width: 3.125rem; /* Converted from 50px */
+    height: 3.125rem; /* Converted from 50px */
+    margin-top: 0.375rem; /* Converted from 6px */
 }
 
 .app .screen .bars .bladder {
@@ -119,11 +122,8 @@
 }
 
 .app .screen .bars .bladder .poo {
-    width: 30px;
-    height: 30px;
-    margin-top: 15px;
-    margin-right: 7px;
+    width: 1.875rem; /* Converted from 30px */
+    height: 1.875rem; /* Converted from 30px */
+    margin-top: 0.9375rem; /* Converted from 15px */
+    margin-right: 0.4375rem; /* Converted from 7px */
 }
-
-
-
