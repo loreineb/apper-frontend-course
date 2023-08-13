@@ -55,7 +55,6 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [themeSwitchTimerActive, setThemeSwitchTimerActive] = useState(false);
 
-  
   const updateAttributes = () => {
     dispatch({ type: 'TIME_TICK', attribute: 'happiness', value: 3 }); 
     dispatch({ type: 'TIME_TICK', attribute: 'energy', value: 2 }); 
@@ -74,7 +73,7 @@ function App() {
 
   useEffect(() => {
     if (gameStarted) { // This is s.t. the timer starts when gameStarted changes, not upon mount
-      setTimer(setInterval(updateAttributes, 25000)); // set to 25s rather than the inital 1min so users can observe changes quicker
+      setTimer(setInterval(updateAttributes, 25000)); // set to 25s rather than the inital 1min so users can observe changes
     }
 
     return () => {
