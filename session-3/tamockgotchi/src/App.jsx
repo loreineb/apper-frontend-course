@@ -16,6 +16,7 @@ import petDog from './images/character/pet-dog.png';
 import cleanDog from './images/character/clean-dog.png';
 import pottyDog from './images/character/potty-dog.png';
 import sadDog from './images/character/sad-dog.png';
+import _ from 'lodash';
 
 
 const initialState = {
@@ -56,8 +57,8 @@ function App() {
   const [themeSwitchTimerActive, setThemeSwitchTimerActive] = useState(false);
 
   const updateAttributes = () => {
-    dispatch({ type: 'TIME_TICK', attribute: 'happiness', value: 3 }); 
-    dispatch({ type: 'TIME_TICK', attribute: 'energy', value: 2 }); 
+    dispatch({ type: 'TIME_TICK', attribute: 'happiness', value: 4 }); 
+    dispatch({ type: 'TIME_TICK', attribute: 'energy', value: 4 }); 
     dispatch({ type: 'TIME_TICK', attribute: 'hunger', value: 5 }); 
     dispatch({ type: 'TIME_TICK', attribute: 'bladder', value: 6 }); 
 
@@ -130,6 +131,11 @@ function App() {
       }, 5000); // 5s
     }
   };
+
+  const debouncedHandleFeed = _.debounce(handleFeed, 500); //there is too noticeable a delay with 1s
+  const debouncedHandlePet = _.debounce(handlePet, 500);
+  const debouncedHandlePotty = _.debounce(handlePotty, 500);
+  const debouncedHandleSleep = _.debounce(handleSleep, 500);
   
 
   return (
@@ -171,7 +177,7 @@ function App() {
                     : dogImage
                 }
                 alt="dog character"
-                onClick={handlePet}
+                onClick={debouncedHandlePet}
               />
             )}
             <div className="buttons">
@@ -179,19 +185,19 @@ function App() {
                 className="feed"
                 src={feedButton}
                 alt="feed"
-                onClick={handleFeed}
+                onClick={debouncedHandleFeed}
               />
               <img
                 className="potty"
                 src={pottyButton}
                 alt="potty"
-                onClick={handlePotty}
+                onClick={debouncedHandlePotty}
               />
               <img
                 className="sleep"
                 src={zzzButton}
                 alt="zzz"
-                onClick={handleSleep}
+                onClick={debouncedHandleSleep}
               />
             </div>
           </>
