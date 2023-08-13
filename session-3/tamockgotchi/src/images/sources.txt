@@ -1,0 +1,7 @@
+icons: 
+1. food: https://static.wikia.nocookie.net/portalworldsgame/images/a/a0/Premium_Dog_Food.png/revision/latest?cb=20200518163226
+2. poo: https://thumbs.dreamstime.com/z/pixel-art-style-poo-smile-vector-set-pack-66503885.jpg
+3. sleep: https://img.freepik.com/premium-vector/sleep-sign-pixel-art-style_475147-2696.jpg?w=2000
+4. smiley: https://img.freepik.com/premium-vector/vector-illustration-cute-pixel-art-smiling-face-icon-geek-emoji-element-style-90s-game_522613-643.jpg?w=2000
+
+backgrounds, buttons, and character assets were personally made
