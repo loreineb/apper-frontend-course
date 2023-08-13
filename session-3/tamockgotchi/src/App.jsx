@@ -71,14 +71,13 @@ function App() {
     }
   };
 
-  // Start the timer when the component mounts
   useEffect(() => {
     if (gameStarted) { // This is s.t. the timer starts when gameStarted changes, not upon mount
       setTimer(setInterval(updateAttributes, 45000)); // 45s
     }
-    // Clean up the timer when the component unmounts
+
     return () => {
-      clearInterval(timer);
+      clearInterval(timer); // Don't forget to clean up
     };
   }, [gameStarted]); 
 

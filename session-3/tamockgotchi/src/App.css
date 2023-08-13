@@ -48,7 +48,7 @@
     cursor: grab;
 }
 
-.app .screen .dog:active {
+.app .screen .dog:active { /* active is when you're clicking */
     cursor: grabbing;
 }
 
