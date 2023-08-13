@@ -37,7 +37,7 @@
 }
 
 .app .screen .dog {
-    margin-top: 15.9375rem; /* Converted from 255px */
+    margin-top: 14.3rem; /* Converted from 255px */
     margin-left: 28.125rem; /* Converted from 450px */
     width: 11.25rem; /* Converted from 180px */
     height: 11.25rem; /* Converted from 180px */
@@ -80,7 +80,7 @@
     align-items: flex-start;
     border-radius: 0.3125rem; /* Converted from 5px */
     background-color: lightblue;
-    margin-top: -1.75rem; /* Converted from -28px */
+    /* margin-top: -1.75rem; Converted from -28px */
 }
 
 .app .screen .bars .happiness {

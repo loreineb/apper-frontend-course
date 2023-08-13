@@ -111,13 +111,9 @@ function App() {
   const isDarkTheme = theme === 'dark';
 
   return (
+    //note to self: the order in which you put things in the return can affect the layout
     <div className="app">
       <div className="screen" data-theme={theme}>
-      {!isDarkTheme && (
-      <Tooltip text={"This is my dog Popeye"}>
-        <span class="material-symbols-outlined">info</span>
-      </Tooltip>
-      )} 
       <div className="bars">
         <div className="happiness">
           <img className="smiley" src={smiley} alt="Happiness" />
@@ -136,6 +132,11 @@ function App() {
           <ProgressBar value={state.bladder} />
         </div>
       </div>
+      {!isDarkTheme && (
+      <Tooltip text={"This is my dog Popeye"}>
+        <span class="material-symbols-outlined">info</span>
+      </Tooltip>
+      )} 
       {!isDarkTheme && (
       <img
         className="dog"

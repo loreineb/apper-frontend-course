@@ -1,17 +1,17 @@
 .tooltip-container{
     position: relative;
-    top: 73px;
-    margin-left: 370px;
+    top: 1.375rem; /* 22px / 16px = 1.375rem */
+    margin-left: 23.125rem; /* 370px / 16px = 23.125rem */
 }
 
-.tooltip{
+.tooltip-text{
     position: absolute;
-    top: 100%;
-    left: 10%;
+    top: 6.25rem; /* 100% / 16px = 6.25rem */
+    left: 0.625rem; /* 10% / 16px = 0.625rem */
     transform: translateX(-50%);
     background-color: rgba(0,0,0,0.8);
     color: white;
-    padding: 10px;
-    border-radius: 4px;
+    padding: 0.625rem; /* 10px / 16px = 0.625rem */
+    border-radius: 0.25rem; /* 4px / 16px = 0.25rem */
     z-index: 1; /* so it's always on top */
 }

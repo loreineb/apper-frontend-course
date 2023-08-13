@@ -10,7 +10,7 @@ const Tooltip = ({ text, children }) => {
       onMouseLeave={() => setIsVisible(false)}
     >
       {children}
-      {isVisible && <div className='tooltip'>{text}</div>}
+      {isVisible && <div className='tooltip-text'>{text}</div>}
     </div>
   );
 };
