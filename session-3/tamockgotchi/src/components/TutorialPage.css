@@ -16,6 +16,11 @@
     padding: 1rem;
 }
 
+.tutorial .content .notes {
+    text-align:left;
+    font-size: small;
+}
+
 .tutorial .okay {
     width: 7rem; 
     height: 3.5rem; 

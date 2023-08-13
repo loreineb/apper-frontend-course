@@ -23,7 +23,7 @@ const initialState = {
   hunger: 60,
   happiness: 60,
   energy: 60,
-  bladder: 50, //set initial values to lower s.t. you can see the workings upon game start
+  bladder: 40, //set initial values to lower s.t. you can see the workings upon game start
 };
 
 const reducer = (state, action) => {
@@ -83,7 +83,7 @@ function App() {
   }, [gameStarted]); 
 
   const handleFeed = () => {
-    !themeSwitchTimerActive && (dispatch({ type: 'FEED', value: 30 })); // This is s.t. you can't feed the dog while asleep
+    !themeSwitchTimerActive && !isTherePoo && (dispatch({ type: 'FEED', value: 30 })); // This is s.t. you can't feed the dog while asleep
     setDogImage(feedDog)
     setTimeout(() => {
       setDogImage(defaultDog); // This is s.t. the image returns to default
@@ -91,7 +91,7 @@ function App() {
   };
 
   const handlePet = () => {
-    dispatch({ type: 'PET', value: 20 });
+    !isTherePoo && (dispatch({ type: 'PET', value: 20 })); // if there's no poo, you can pet
     setDogImage(petDog)
     setTimeout(() => {
       setDogImage(defaultDog);
@@ -106,13 +106,15 @@ function App() {
     }, 500);
   };
 
+  const isTherePoo = state.bladder < 40;
+
   const handleSleep = () => {
     if (themeSwitchTimerActive) {
       clearTimeout(timer);
       setThemeSwitchTimerActive(false);
       setDogImage(defaultDog);
       setTheme('light'); // Manually set the theme back to light
-    } else {
+    } else if (!isTherePoo) {
       switchTheme();
       dispatch({ type: 'SLEEP', value: 100 });
     }
@@ -132,6 +134,7 @@ function App() {
     }
   };
 
+  //debouncing for the event that people click too fast
   const debouncedHandleFeed = _.debounce(handleFeed, 500); //there is too noticeable a delay with 1s
   const debouncedHandlePet = _.debounce(handlePet, 500);
   const debouncedHandlePotty = _.debounce(handlePotty, 500);
@@ -168,17 +171,17 @@ function App() {
             )}
             {!themeSwitchTimerActive && (
               <img
-                className="dog"
-                src={
-                  state.hunger < 40 || state.energy < 40 || state.happiness < 40
-                    ? sadDog
-                    : state.bladder < 40
-                    ? pottyDog
-                    : dogImage
-                }
-                alt="dog character"
-                onClick={debouncedHandlePet}
-              />
+              className="dog"
+              src={
+                state.bladder < 40 //the order in which the conditions are evaluated determine priority
+                  ? pottyDog
+                  : state.hunger < 40 || state.energy < 40 || state.happiness < 40
+                  ? sadDog
+                  : dogImage
+              }
+              alt="dog character"
+              onClick={debouncedHandlePet}
+            />
             )}
             <div className="buttons">
               <img

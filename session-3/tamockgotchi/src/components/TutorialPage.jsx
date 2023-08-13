@@ -22,7 +22,11 @@ function TutorialPage({ onTutorialComplete }) {
             <p>Press the buttons to feed your dog, let him go potty, or close the lights for his sleep. 
             You can wake your pet up by opening the lights again, but he will also wake up on his own.
             </p>
-            <p>Note that while the lights are closed and your pet is sleeping, you cannot do other actions.</p>
+            <div className='notes'>
+              <p> Notes:</p>
+              <p>While the lights are closed, you cannot do other actions. </p>
+              <p>If your pet poops, you have to go potty and clean it up before you can do anything else.</p>
+            </div>
             <img className="okay" src={okayButton} alt="okay" onClick={onTutorialComplete} />  
         </div>
     </div>
