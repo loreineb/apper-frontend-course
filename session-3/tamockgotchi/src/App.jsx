@@ -22,7 +22,7 @@ const initialState = {
   hunger: 60,
   happiness: 60,
   energy: 60,
-  bladder: 60, //set initial values to 60 s.t. you can see the workings upon game start
+  bladder: 50, //set initial values to lower s.t. you can see the workings upon game start
 };
 
 const reducer = (state, action) => {
@@ -55,8 +55,7 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [themeSwitchTimerActive, setThemeSwitchTimerActive] = useState(false);
 
-
-  // Function to update the pet's attributes over time
+  
   const updateAttributes = () => {
     dispatch({ type: 'TIME_TICK', attribute: 'happiness', value: 3 }); 
     dispatch({ type: 'TIME_TICK', attribute: 'energy', value: 2 }); 
@@ -75,7 +74,7 @@ function App() {
 
   useEffect(() => {
     if (gameStarted) { // This is s.t. the timer starts when gameStarted changes, not upon mount
-      setTimer(setInterval(updateAttributes, 45000)); // 45s
+      setTimer(setInterval(updateAttributes, 25000)); // set to 25s rather than the inital 1min so users can observe changes quicker
     }
 
     return () => {
