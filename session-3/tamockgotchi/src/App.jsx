@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import ProgressBar from './ProgressBar';
-import Tooltip from './Tooltip';
+import ProgressBar from './components/ProgressBar';
+import Tooltip from './components/Tooltip';
 import './App.css';
-import sleep from './images/sleep.png';
-import smiley from './images/smiley.png';
-import food from './images/food.png';
-import poo from './images/poo.png';
-import feedButton from './images/feedButton.png';
-import pottyButton from './images/pottyButton.png';
-import zzzButton from './images/zzzButton.png';
-import defaultDog from './images/defaultDog.gif';
-import feedDog from './images/feedDog.png';
-import petDog from './images/petDog.png';
-import pottyDog from './images/pottyDog.png';
-import sadDog from './images/sadDog.png';
+import sleep from './images/icons/sleep.png';
+import smiley from './images/icons/smiley.png';
+import food from './images/icons/food.png';
+import poo from './images/icons/poo.png';
+import feedButton from './images/buttons/feedButton.png';
+import pottyButton from './images/buttons/pottyButton.png';
+import zzzButton from './images/buttons/zzzButton.png';
+import defaultDog from './images/character/defaultDog.gif';
+import feedDog from './images/character/feedDog.png';
+import petDog from './images/character/petDog.png';
+import pottyDog from './images/character/pottyDog.png';
+import sadDog from './images/character/sadDog.png';
 
 
 const initialState = {
@@ -33,9 +33,6 @@ const reducer = (state, action) => {
       return { ...state, energy: Math.min(state.energy + action.value, 100) };
     case 'BLADDER':
       return { ...state, bladder: Math.min(state.bladder + action.value, 100) };
-    case 'GAME_OVER':
-        // Handle the pet's death scenario here, like displaying a game over screen.
-      return { ...state, isGameOver: true };
     case 'TIME_TICK':
       return {
         ...state,
@@ -45,6 +42,8 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
+// dispatch is just the one telling the reducer what type to use, it's just the messenger, per se
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -71,7 +70,7 @@ function App() {
 
   // Start the timer when the component mounts
   useEffect(() => {
-    setTimer(setInterval(updateAttributes, 60000)); // Update attributes every 7 seconds (adjust as needed)
+    setTimer(setInterval(updateAttributes, 60000)); //1 minute
 
     // Clean up the timer when the component unmounts
     return () => {
@@ -83,7 +82,7 @@ function App() {
     dispatch({ type: 'FEED', value: 30 });
     setDogImage(feedDog)
     setTimeout(() => {
-      setDogImage(defaultDog); // Reset to default image after a delay
+      setDogImage(defaultDog); // This is s.t. the image returns to default
     }, 500);
   };
 
@@ -91,7 +90,7 @@ function App() {
     dispatch({ type: 'PET', value: 20 });
     setDogImage(petDog)
     setTimeout(() => {
-      setDogImage(defaultDog); // Reset to default image after a delay
+      setDogImage(defaultDog);
     }, 500);
   };
 
@@ -133,14 +132,13 @@ function App() {
         </div>
       </div>
       {!isDarkTheme && (
-      <Tooltip text={"This is my dog Popeye"}>
+      <Tooltip text={"This is my dog Popeye."}>
         <span class="material-symbols-outlined">info</span>
       </Tooltip>
       )} 
       {!isDarkTheme && (
       <img
         className="dog"
-        //src="https://thumbs.gfycat.com/LegitimateWateryAfricanharrierhawk-size_restricted.gif"
         src={
           (state.hunger < 40 || state.energy < 40 || state.happiness < 40)
           ? sadDog

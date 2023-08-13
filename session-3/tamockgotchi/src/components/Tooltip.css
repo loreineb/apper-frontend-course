@@ -6,8 +6,8 @@
 
 .tooltip-text{
     position: absolute;
-    top: 6.25rem; /* 100% / 16px = 6.25rem */
-    left: 0.625rem; /* 10% / 16px = 0.625rem */
+    top: 2rem; /* 100% / 16px = 6.25rem */
+    left: 2rem; /* 10% / 16px = 0.625rem */
     transform: translateX(-50%);
     background-color: rgba(0,0,0,0.8);
     color: white;

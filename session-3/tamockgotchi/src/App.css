@@ -1,11 +1,12 @@
 /* rems or percentages are adaptable to changes rather than pixels */
+/* use relative path instead of absolute for bg image so when it's deployed, it can be found */
 
 :root {
-    --background-image: url(src/images/room5.jpg);
+    --background-image: url(src/images/backgrounds/room5.jpg);
 }
 
 [data-theme='dark'] {
-    --background-image: url(src/images/darkBG3.GIF);
+    --background-image: url(src/images/backgrounds/darkBG3.GIF);
 }
 
 .app {
@@ -17,11 +18,11 @@
     height: 90vh;
     width: 100%;
     position: relative;
-    margin-top: 1.25rem; /* Converted from 20px */
-    padding-left: 1.875rem; /* Converted from 30px */
-    padding-right: 0.9375rem; /* Converted from 15px */
-    border: 0.1875rem black solid; /* Converted from 3px */
-    border-radius: 0.625rem; /* Converted from 10px */
+    margin-top: 1.25rem; 
+    padding-left: 1.875rem; 
+    padding-right: 0.9375rem; 
+    border: 0.1875rem black solid; 
+    border-radius: 0.625rem; 
 }
 
 .app .screen {
@@ -29,18 +30,18 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    border: 0.1875rem black solid; /* Converted from 3px */
-    border-radius: 0.625rem; /* Converted from 10px */
+    border: 0.1875rem black solid; 
+    border-radius: 0.625rem; 
     height: 80%;
     width: 90%;
-    margin-top: 3.5625rem; /* Converted from 57px */
+    margin-top: 3.5625rem; 
 }
 
 .app .screen .dog {
-    margin-top: 14.3rem; /* Converted from 255px */
-    margin-left: 28.125rem; /* Converted from 450px */
-    width: 11.25rem; /* Converted from 180px */
-    height: 11.25rem; /* Converted from 180px */
+    margin-top: 14.3rem; 
+    margin-left: 28.125rem; 
+    width: 11.25rem; 
+    height: 11.25rem; 
 }
 
 .app .screen .dog:hover {
@@ -57,54 +58,53 @@
 }
 
 .app .buttons .feed {
-    margin-right: 6.25rem; /* Converted from 100px */
-    width: 6.25rem; /* Converted from 100px */
-    height: 3.75rem; /* Converted from 60px */
+    margin-right: 6.25rem; 
+    width: 6.25rem; 
+    height: 3.75rem; 
 }
 
 .app .buttons .potty {
-    margin-right: 6.25rem; /* Converted from 100px */
-    width: 6.25rem; /* Converted from 100px */
-    height: 3.4375rem; /* Converted from 55px */
+    margin-right: 6.25rem; 
+    width: 6.25rem; 
+    height: 3.4375rem; 
 }
 
 .app .buttons .sleep {
-    width: 6.25rem; /* Converted from 100px */
-    height: 3rem; /* Converted from 48px */
-    margin-bottom: 0.1875rem; /* Converted from 3px */
+    width: 6.25rem; 
+    height: 3rem; 
+    margin-bottom: 0.1875rem; 
 }
 
 .app .screen .bars {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-radius: 0.3125rem; /* Converted from 5px */
+    border-radius: 0.3125rem; 
     background-color: lightblue;
-    /* margin-top: -1.75rem; Converted from -28px */
 }
 
 .app .screen .bars .happiness {
     display: flex;
-    margin-left: 0.625rem; /* Converted from 10px */
+    margin-left: 0.625rem; 
 }
 
 .app .screen .bars .happiness .smiley {
-    width: 2.1875rem; /* Converted from 35px */
-    height: 1.875rem; /* Converted from 30px */
-    margin-top: 0.9375rem; /* Converted from 15px */
-    margin-right: 0.3125rem; /* Converted from 5px */
+    width: 2.1875rem; 
+    height: 1.875rem; 
+    margin-top: 0.9375rem; 
+    margin-right: 0.3125rem; 
 }
 
 .app .screen .bars .energy {
     display: flex;
-    margin-left: -0.3125rem; /* Converted from -5px */
+    margin-left: -0.3125rem; 
 }
 
 .app .screen .bars .energy .sleep {
-    width: 3.75rem; /* Converted from 60px */
-    height: 3.75rem; /* Converted from 60px */
-    margin-right: -0.1875rem; /* Converted from -3px */
-    margin-top: -0.1875rem; /* Converted from -3px */
+    width: 3.75rem; 
+    height: 3.75rem; 
+    margin-right: -0.1875rem; 
+    margin-top: -0.1875rem; 
 }
 
 .app .screen .bars .hunger {
@@ -112,9 +112,9 @@
 }
 
 .app .screen .bars .hunger .food {
-    width: 3.125rem; /* Converted from 50px */
-    height: 3.125rem; /* Converted from 50px */
-    margin-top: 0.375rem; /* Converted from 6px */
+    width: 3.125rem; 
+    height: 3.125rem; 
+    margin-top: 0.375rem; 
 }
 
 .app .screen .bars .bladder {
@@ -122,8 +122,8 @@
 }
 
 .app .screen .bars .bladder .poo {
-    width: 1.875rem; /* Converted from 30px */
-    height: 1.875rem; /* Converted from 30px */
-    margin-top: 0.9375rem; /* Converted from 15px */
-    margin-right: 0.4375rem; /* Converted from 7px */
+    width: 1.875rem; 
+    height: 1.875rem; 
+    margin-top: 0.9375rem; 
+    margin-right: 0.4375rem; 
 }
