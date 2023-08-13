@@ -2,11 +2,11 @@
 /* use relative path instead of absolute for bg image so when it's deployed, it can be found */
 
 :root {
-    --background-image: url(src/images/backgrounds/room5.jpg);
+    --background-image: url(./images/backgrounds/room5.jpg);
 }
 
 [data-theme='dark'] {
-    --background-image: url(src/images/backgrounds/darkBG3.GIF);
+    --background-image: url(./images/backgrounds/darkBG3.GIF);
 }
 
 .app {

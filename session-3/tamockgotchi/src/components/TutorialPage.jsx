@@ -15,9 +15,14 @@ function TutorialPage({ onTutorialComplete }) {
   return (
     <div className="tutorial">
         <div className='content'>
-            <p className='monitor'>Watch the bars to monitor your pet's needs. If the bars become red, your pet will become unhappy or go potty by himself!</p>
-            <p className='pet'>Click on your dog to pet them and increase their happiness.</p>
-            <p className='press'>Press the buttons to feed your dog, let him go potty, or close the lights for his sleep. Note that while the lights are closed, you cannot do other actions.</p>
+            <p>Watch the bars to monitor your pet's needs. 
+            If the bars become red, your pet will become unhappy or go potty by himself!
+            </p>
+            <p>Click on your dog to pet them and increase their happiness.</p>
+            <p>Press the buttons to feed your dog, let him go potty, or close the lights for his sleep. 
+            You can wake your pet up by opening the lights again, but he will also wake up on his own.
+            </p>
+            <p>Note that while the lights are closed and your pet is sleeping, you cannot do other actions.</p>
             <img className="okay" src={okayButton} alt="okay" onClick={onTutorialComplete} />  
         </div>
     </div>

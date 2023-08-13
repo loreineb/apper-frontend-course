@@ -19,10 +19,10 @@ import sadDog from './images/character/sad-dog.png';
 
 
 const initialState = {
-  hunger: 100,
-  happiness: 100,
-  energy: 100,
-  bladder: 100,
+  hunger: 60,
+  happiness: 60,
+  energy: 60,
+  bladder: 60, //set initial values to 60 s.t. you can see the workings upon game start
 };
 
 const reducer = (state, action) => {
@@ -53,6 +53,8 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [dogImage, setDogImage] = useState(defaultDog);
   const [gameStarted, setGameStarted] = useState(false);
+  const [themeSwitchTimerActive, setThemeSwitchTimerActive] = useState(false);
+
 
   // Function to update the pet's attributes over time
   const updateAttributes = () => {
@@ -82,7 +84,7 @@ function App() {
   }, [gameStarted]); 
 
   const handleFeed = () => {
-    !isDarkTheme && (dispatch({ type: 'FEED', value: 30 })); // This is s.t. you can't feed the dog while asleep
+    !themeSwitchTimerActive && (dispatch({ type: 'FEED', value: 30 })); // This is s.t. you can't feed the dog while asleep
     setDogImage(feedDog)
     setTimeout(() => {
       setDogImage(defaultDog); // This is s.t. the image returns to default
@@ -98,7 +100,7 @@ function App() {
   };
 
   const handlePotty = () => {
-    !isDarkTheme && (dispatch({ type: 'BLADDER', value: 50 }));
+    !themeSwitchTimerActive && (dispatch({ type: 'BLADDER', value: 50 }));
     setDogImage(cleanDog)
     setTimeout(() => {
       setDogImage(defaultDog);
@@ -106,15 +108,31 @@ function App() {
   };
 
   const handleSleep = () => {
-    switchTheme();
-    dispatch({ type: 'SLEEP', value: 100 });
+    if (themeSwitchTimerActive) {
+      clearTimeout(timer);
+      setThemeSwitchTimerActive(false);
+      setDogImage(defaultDog);
+      setTheme('light'); // Manually set the theme back to light
+    } else {
+      switchTheme();
+      dispatch({ type: 'SLEEP', value: 100 });
+    }
   };
+  
 
   const switchTheme = () => {
-      const newTheme = theme === 'light' ? 'dark' : 'light';
-      setTheme(newTheme);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  
+    if (newTheme === 'dark') { // This is s.t. your pet "wakes up" after some time
+      setThemeSwitchTimerActive(true);
+      setTimeout(() => {
+        setTheme('light');
+        setThemeSwitchTimerActive(false);
+      }, 5000); // 5s
+    }
   };
-  const isDarkTheme = theme === 'dark';
+  
 
   return (
     <div className="app">
@@ -139,12 +157,12 @@ function App() {
                 <ProgressBar value={state.bladder} />
               </div>
             </div>
-            {!isDarkTheme && (
+            {!themeSwitchTimerActive && (
               <Tooltip text={"This is my dog Popeye."}>
                 <span className="material-symbols-outlined">info</span>
               </Tooltip>
             )}
-            {!isDarkTheme && (
+            {!themeSwitchTimerActive && (
               <img
                 className="dog"
                 src={
