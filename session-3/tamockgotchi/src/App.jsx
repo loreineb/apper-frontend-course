@@ -7,14 +7,15 @@ import sleep from './images/icons/sleep.png';
 import smiley from './images/icons/smiley.png';
 import food from './images/icons/food.png';
 import poo from './images/icons/poo.png';
-import feedButton from './images/buttons/feedButton.png';
-import pottyButton from './images/buttons/pottyButton.png';
-import zzzButton from './images/buttons/zzzButton.png';
-import defaultDog from './images/character/defaultDog.gif';
-import feedDog from './images/character/feedDog.png';
-import petDog from './images/character/petDog.png';
-import pottyDog from './images/character/pottyDog.png';
-import sadDog from './images/character/sadDog.png';
+import feedButton from './images/buttons/feed-button.png';
+import pottyButton from './images/buttons/potty-button.png';
+import zzzButton from './images/buttons/zzz-button.png';
+import defaultDog from './images/character/default-dog.gif';
+import feedDog from './images/character/feed-dog.png';
+import petDog from './images/character/pet-dog.png';
+import cleanDog from './images/character/clean-dog.png';
+import pottyDog from './images/character/potty-dog.png';
+import sadDog from './images/character/sad-dog.png';
 
 
 const initialState = {
@@ -72,13 +73,14 @@ function App() {
 
   // Start the timer when the component mounts
   useEffect(() => {
-    setTimer(setInterval(updateAttributes, 60000)); //1 minute
-
+    if (gameStarted) { // This is s.t. the timer starts when gameStarted changes, not upon mount
+      setTimer(setInterval(updateAttributes, 45000)); // 45s
+    }
     // Clean up the timer when the component unmounts
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [gameStarted]); 
 
   const handleFeed = () => {
     !isDarkTheme && (dispatch({ type: 'FEED', value: 30 })); // This is s.t. you can't feed the dog while asleep
@@ -97,7 +99,11 @@ function App() {
   };
 
   const handlePotty = () => {
-    !isDarkTheme && (dispatch({ type: 'BLADDER', value: 100 }));
+    !isDarkTheme && (dispatch({ type: 'BLADDER', value: 50 }));
+    setDogImage(cleanDog)
+    setTimeout(() => {
+      setDogImage(defaultDog);
+    }, 500);
   };
 
   const handleSleep = () => {
@@ -112,58 +118,74 @@ function App() {
   const isDarkTheme = theme === 'dark';
 
   return (
-    //note to self: the order in which you put things in the return can affect the layout
     <div className="app">
-    {gameStarted ? (
       <div className="screen" data-theme={theme}>
-        <div className="bars">
-          <div className="happiness">
-            <img className="smiley" src={smiley} alt="Happiness" />
-            <ProgressBar value={state.happiness} />
-          </div>
-          <div className="energy">
-            <img className="sleep" src={sleep} alt="Energy" />
-            <ProgressBar value={state.energy} />
-          </div>
-          <div className="hunger">
-            <img className="food" src={food} alt="Hunger" />
-            <ProgressBar value={state.hunger} />
-          </div>
-          <div className="bladder">
-            <img className="poo" src={poo} alt="Bladder" />
-            <ProgressBar value={state.bladder} />
-          </div>
-        </div>
-        {!isDarkTheme && (
-          <Tooltip text={"This is my dog Popeye."}>
-            <span className="material-symbols-outlined">info</span>
-          </Tooltip>
-        )}
-        {!isDarkTheme && (
-          <img
-            className="dog"
-            src={
-              state.hunger < 40 || state.energy < 40 || state.happiness < 40
-                ? sadDog
-                : state.bladder < 40
-                ? pottyDog
-                : dogImage
-            }
-            alt="dog character"
-            onClick={handlePet}
-          />
+        {gameStarted ? (
+          <>
+            <div className="bars">
+              <div className="happiness">
+                <img className="smiley" src={smiley} alt="Happiness" />
+                <ProgressBar value={state.happiness} />
+              </div>
+              <div className="energy">
+                <img className="sleep" src={sleep} alt="Energy" />
+                <ProgressBar value={state.energy} />
+              </div>
+              <div className="hunger">
+                <img className="food" src={food} alt="Hunger" />
+                <ProgressBar value={state.hunger} />
+              </div>
+              <div className="bladder">
+                <img className="poo" src={poo} alt="Bladder" />
+                <ProgressBar value={state.bladder} />
+              </div>
+            </div>
+            {!isDarkTheme && (
+              <Tooltip text={"This is my dog Popeye."}>
+                <span className="material-symbols-outlined">info</span>
+              </Tooltip>
+            )}
+            {!isDarkTheme && (
+              <img
+                className="dog"
+                src={
+                  state.hunger < 40 || state.energy < 40 || state.happiness < 40
+                    ? sadDog
+                    : state.bladder < 40
+                    ? pottyDog
+                    : dogImage
+                }
+                alt="dog character"
+                onClick={handlePet}
+              />
+            )}
+            <div className="buttons">
+              <img
+                className="feed"
+                src={feedButton}
+                alt="feed"
+                onClick={handleFeed}
+              />
+              <img
+                className="potty"
+                src={pottyButton}
+                alt="potty"
+                onClick={handlePotty}
+              />
+              <img
+                className="sleep"
+                src={zzzButton}
+                alt="zzz"
+                onClick={handleSleep}
+              />
+            </div>
+          </>
+        ) : (
+          <WelcomeScreen onStart={() => setGameStarted(true)} />
         )}
       </div>
-    ) : (
-      <WelcomeScreen onStart={() => setGameStarted(true)} />
-    )}
-    <div className="buttons">
-      <img className="feed" src={feedButton} alt="feed" onClick={handleFeed} />
-      <img className="potty" src={pottyButton} alt="potty" onClick={handlePotty} />
-      <img className="sleep" src={zzzButton} alt="zzz" onClick={handleSleep} />
     </div>
-  </div>
-);
-}
+  );
+}  
 
 export default App;

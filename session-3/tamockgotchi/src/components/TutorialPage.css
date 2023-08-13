@@ -1,0 +1,30 @@
+.tutorial {
+    width: 54.3rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center; /* to center horizontally */
+    margin-top: 7rem;
+}
+
+
+.tutorial .content {
+    background-color: rgba(255, 255, 255, 0.8); /* the 0.8 field is for opacity */
+    width: 32rem;
+    font-size: large;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.tutorial .okay {
+    width: 7rem; 
+    height: 3.5rem; 
+    position: relative;
+
+}
+
+.tutorial .content .okay:hover {
+    transform: scale(1.1);
+}
+
+

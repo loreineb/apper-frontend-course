@@ -1,4 +1,28 @@
-.app .button {
-    width: 6rem;
-    height: 4rem;
+.welcome-container {
+    width: 54.3rem;
+}
+
+.welcome-container .welcome-content {
+    margin-left: 13.5rem;
+    margin-top: 16rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.welcome-container .welcome {
+    font-size:medium;
+}
+
+.welcome-container .press {
+    font-size:small;
+}
+
+.welcome-container .button {
+    width: 7.5rem;
+    height: 4.5rem;
+    margin-top: -0.5rem;
+}
+
+.welcome-container .button:hover {
+    transform: scale(1.1);
 }

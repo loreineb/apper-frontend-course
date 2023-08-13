@@ -14,9 +14,9 @@ const ProgressBar = ({value}) => {
     }
 
     return <div className='container'>
-        <div className='progress-bar'>
-            <div className='progress-bar-fill' 
-            style={{width : `${value}%`, backgroundColor: getColor() }}>
+            <div className='progress-bar'>
+                <div className='progress-bar-fill' 
+                    style={{width : `${value}%`, backgroundColor: getColor() }}>
             </div>
         </div>
     </div>
